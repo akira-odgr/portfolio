@@ -24,7 +24,7 @@
     --color-text-light: #666666;
 }
 
-.custom-shape-divider-bottom-1742697222 {
+.custom-shape-divider-bottom-1742739206 {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -34,15 +34,15 @@
     transform: rotate(180deg);
 }
 
-.custom-shape-divider-bottom-1742697222 svg {
+.custom-shape-divider-bottom-1742739206 svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 73px;
+    height: 106px;
 }
 
-.custom-shape-divider-bottom-1742697222 .shape-fill {
-    fill: var(--color-accent);
+.custom-shape-divider-bottom-1742739206 .shape-fill {
+    fill: #ffffff;
 }
 
 body {
@@ -329,22 +329,26 @@ video {
 
     &__container {
         position: absolute;
-        t .title {
-            font-size: fluid-text(36px, 64px);
+        .title {
+            font-size: fluid-text(38px, 72px);
             font-weight: 700;
             line-height: 1.5;
             color: var(--color-sub-white);
             font-family: var(--secondary-font);
-            // letter-spacing: 0.01em;
+            letter-spacing: 0.05em;
         }
 
         p {
-            font-size: fluid-text(8px, 12px);
+            font-size: fluid-text(12px, 18px);
             font-weight: 300;
-            line-height: 1.5;
+            line-height: 1.2;
             color: var(--color-sub-light);
             font-family: var(--secondary-font);
             text-align: center;
+
+            &:nth-of-type(2) {
+                line-height: 2;
+            }
         }
     }
 
@@ -359,9 +363,7 @@ video {
 
     .scroll {
         position: absolute;
-        // inset: auto 2% 2% auto;
-        bottom: 2%;
-        right: 4%;
+        inset: auto 4% 3% auto;
         writing-mode: vertical-lr;
 
         span {
@@ -371,7 +373,7 @@ video {
             line-height: 1.5;
             gap: 0.5em;
             inline-size: 8em;
-            font-size: fluid-text(8px, 12px);
+            font-size: fluid-text(12px, 18px);
             font-weight: 300;
             color: var(--color-accent);
             letter-spacing: 0.3em;
@@ -408,12 +410,13 @@ video {
 }
 
 .about {
-    @extend .section__inner;
-
     position: relative;
     background-color: var(--color-primary);
+    box-shadow: 0 0 0 100vmax var(--color-primary);
+    clip-path: inset(0 -100vmax);
 
     &__container {
+        @extend .section__inner;
         position: relative;
         display: grid;
         gap: 50px;
@@ -450,9 +453,9 @@ video {
 
     &__image {
         width: min(100%, 500px);
-        // animation: reveal linear both;
-        // animation-timeline: view(block);
-        // animation-range: cover 0% cover 50%;
+        animation: reveal linear both;
+        animation-timeline: view(block);
+        animation-range: cover 0% cover 50%;
 
         img {
             width: 100%;
@@ -475,8 +478,8 @@ video {
 
     &__icon {
         position: absolute;
-        top: 4px;
-        right: 18%;
+        top: 24.4%;
+        right: 20%;
         width: 25px;
         height: 25px;
         animation: fuwafuwa 3s ease-in-out infinite alternate;
@@ -502,12 +505,13 @@ video {
 .slide {
     display: flex;
     background-color: var(--color-accent);
-    color: #ccc;
-    height: 500vh;
+    color: #fff;
+    height: 400vh;
     overflow: visible;
+    padding-block: 200px;
 
     view-timeline-name: --section-pin-tl;
-    // view-timeline-axis: block;
+    view-timeline-axis: block;
 
     &__sticky {
         position: sticky;
@@ -522,14 +526,15 @@ video {
         justify-content: flex-start;
         align-items: center;
         gap: 60px;
-        // margin: 50px 5vw;
-        // width: 160vmax;
+        margin: 100px 10vw;
+        width: 200vmax;
         height: 70vh;
         overflow-y: hidden;
         will-change: transform;
         animation: linear move forwards;
         animation-timeline: --section-pin-tl;
-        animation-range: contain 0% contain 80%;
+        animation-range: contain 30% contain 50%;
+        background-color: #3498db;
 
         h2 {
             font-size: 1rem;
