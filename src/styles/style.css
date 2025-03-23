@@ -513,7 +513,6 @@ video {
 .about {
   position: relative;
   background-color: var(--color-primary);
-  margin-top: 100vh;
 }
 .about__container {
   position: relative;
