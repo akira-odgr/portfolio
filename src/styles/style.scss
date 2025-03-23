@@ -47,35 +47,48 @@
 
 body {
     font-family: var(--font-primary);
+    // overflow-x: hidden;
+    // overflow-y: scroll;
+    box-sizing: border-box;
 }
 
 .parallax-bg {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
     z-index: -1;
     overflow: hidden;
+    width: 100%;
+    height: 100vh;
+
+    video {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        // animation: kenburns-top-right 8s ease-out both;
+        @keyframes kenburns-top-right {
+            0% {
+                -webkit-transform: scale(1) translate(0, 0);
+                transform: scale(1) translate(0, 0);
+                -webkit-transform-origin: 84% 16%;
+                transform-origin: 84% 16%;
+            }
+            100% {
+                -webkit-transform: scale(1.25) translate(20px, -15px);
+                transform: scale(1.25) translate(20px, -15px);
+                -webkit-transform-origin: right top;
+                transform-origin: right top;
+            }
+        }
+    }
 }
+
 video {
-    position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
-    animation: kenburns-top-right 8s ease-out both;
-    @keyframes kenburns-top-right {
-        0% {
-            -webkit-transform: scale(1) translate(0, 0);
-            transform: scale(1) translate(0, 0);
-            -webkit-transform-origin: 84% 16%;
-            transform-origin: 84% 16%;
-        }
-        100% {
-            -webkit-transform: scale(1.25) translate(20px, -15px);
-            transform: scale(1.25) translate(20px, -15px);
-            -webkit-transform-origin: right top;
-            transform-origin: right top;
-        }
-    }
 }
 
 .fv__content {
@@ -305,15 +318,18 @@ video {
 
 .hero {
     position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 50px;
-    height: 100%;
+    justify-content: center;
+
+    z-index: -10;
 
     &__container {
-        .title {
+        position: absolute;
+        t .title {
             font-size: fluid-text(36px, 64px);
             font-weight: 700;
             line-height: 1.5;
@@ -343,7 +359,9 @@ video {
 
     .scroll {
         position: absolute;
-        inset: auto 2% 2% auto;
+        // inset: auto 2% 2% auto;
+        bottom: 2%;
+        right: 4%;
         writing-mode: vertical-lr;
 
         span {
@@ -393,6 +411,7 @@ video {
     @extend .section__inner;
     position: relative;
     background-color: var(--color-primary);
+    margin-top: 100vh;
 
     &__container {
         position: relative;
@@ -431,9 +450,9 @@ video {
 
     &__image {
         width: min(100%, 500px);
-        animation: reveal linear both;
-        animation-timeline: view(block);
-        animation-range: cover 0% cover 50%;
+        // animation: reveal linear both;
+        // animation-timeline: view(block);
+        // animation-range: cover 0% cover 50%;
 
         img {
             width: 100%;
@@ -503,8 +522,8 @@ video {
         justify-content: flex-start;
         align-items: center;
         gap: 60px;
-        margin: 50px 5vw;
-        width: 160vmax;
+        // margin: 50px 5vw;
+        // width: 160vmax;
         height: 70vh;
         overflow-y: hidden;
         will-change: transform;
