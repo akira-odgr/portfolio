@@ -1,0 +1,16 @@
+/*
+ * サイト内パラメータ設定ファイル
+ * Site parameter configuration file
+ */
+$c-black: #000000;
+$c-white: #ffffff;
+$c-gray: #868686;
+
+// サイト内フォントサイズ設定
+// Site font size configuration
+$default-min-bp: 375px; // _functions.scss / fluid-textで使用. Used in _functions.scss / fluid-text
+$default-max-bp: 1280px; // _functions.scss / fluid-textで使用. Used in _functions.scss / fluid-text
+$root-font-size: 16px;
+
+$base-font: "Noto Serif JP", serif; // サイト内ベースフォント. Site base font
+$accent-font: "Montserrat", sans-serif; // サイト内タイトル用フォント. Site title font

@@ -1,0 +1,102 @@
+// カラー変数の定義
+:root {
+    --color-primary: #2c3e50;
+    --color-accent: #e6e6e8;
+    --color-sub-light: #f5f5f5;
+    --color-sub-white: #fafafa;
+    --color-text: #333333;
+    --color-text-light: #666666;
+}
+
+.loader {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: var(--color-sub-white);
+    font-size: fluid-text(17px, 22px);
+    background-color: var(--color-primary);
+    transition: opacity 1s;
+
+    &-inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    &-percent {
+        font-family: serif;
+        line-height: 1;
+        padding-top: 0.05em;
+        font-size: 0.7em;
+        color: var(--color-accent);
+    }
+
+    &-bar {
+        @extend %bar-loader;
+        margin-bottom: 1em;
+    }
+}
+
+%bar-loader {
+    margin: 0 auto 0.5em;
+
+    --c-bar-1: var(--color-accent);
+    --c-bar-2: rgba(230, 230, 232, 0.2);
+
+    position: relative;
+    --w-bar: 5em;
+    --h-bar: 1px;
+    --d-gradient: 90deg;
+    width: var(--w-bar);
+    height: var(--h-bar);
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200%;
+        height: 100%;
+        background-image: linear-gradient(
+            var(--d-gradient),
+            var(--c-bar-1) 0%,
+            var(--c-bar-2) 20%,
+            var(--c-bar-2) 30%,
+            var(--c-bar-1) 50%,
+            var(--c-bar-2) 70%,
+            var(--c-bar-2) 80%,
+            var(--c-bar-1) 100%
+        );
+
+        animation: kf-loadbar linear 0.7s infinite;
+
+        @keyframes kf-loadbar {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(50%);
+            }
+        }
+    }
+}
+
+// .fv {
+//     opacity: 0;
+//     transition: opacity 1s;
+
+//     .hero {
+//         opacity: 0;
+//         transform: translateY(30px);
+//     }
+
+//     .parallax-bg {
+//         opacity: 1;
+//     }
+// }
